@@ -5,3 +5,4 @@ Configure a fresh-installed Ubuntu 16.04 with:
 4) libjpeg turbo
 5) python with virtual environment
 6) opencv
+7) cuDNN v6.0 and tensorflow
