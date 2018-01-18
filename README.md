@@ -8,3 +8,4 @@ Configure a fresh-installed Ubuntu 16.04 with:
 7) cuDNN v6.0 and tensorflow
 8) add .ycm_extra_conf.py sample in the name of ycm_extra_conf.py(add include paths)
 9) make ctags for opencv
+10) install valgrind
