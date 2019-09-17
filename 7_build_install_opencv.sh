@@ -14,7 +14,7 @@ sudo apt-get install libxvidcore-dev libx264-dev
 sudo apt-get install libgtk-3-dev
 sudo apt-get install libatlas-base-dev gfortran
 #cleanup if possible
-opencv_version="4.0.0"
+opencv_version="4.1.1"
 opencv_name="opencv-$opencv_version"
 opencv_source_path="./$opencv_name"
 opencv_build_path="./$opencv_name/build"
@@ -41,8 +41,7 @@ cd $opencv_build_path
 cmake .. -D CMAKE_BUILD_TYPE=RELEASE -D BUILD_SHARED_LIBS=ON -D CMAKE_INSTALL_PREFIX=$prefix_dir \
         -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python2.7 -D BUILD_opencv_python=OFF \
 	-D BUILD_opencv_python2=OFF -D INSTALL_C_EXAMPLES=OFF \
-	-D WITH_JPEG=ON -D BUILD_JPEG=OFF -D JPEG_INCLUDE_DIR=/opt/libjpeg-turbo/include \
-	-D JPEG_LIBRARY=/opt/libjpeg-turbo/lib64/libjpeg.a \
+	-D WITH_JPEG=ON -D BUILD_JPEG=ON \
 	-D WITH_PNG=ON -D BUILD_PNG=ON -D WITH_TIFF=ON -D BUILD_TIFF=ON \
 	-D WITH_JASPER=ON -D BUILD_JASPER=ON -D WITH_ZLIB=ON -D BUILD_ZLIB=ON \
         -D BUILD_EXAMPLES=OFF -D WITH_TBB=ON -D BUILD_TBB=ON -D WITH_V4L=ON -D WITH_QT=OFF \

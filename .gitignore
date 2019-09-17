@@ -1,0 +1,5 @@
+
+*.zip
+opencv-*
+print_cv_info
+libjpeg*
