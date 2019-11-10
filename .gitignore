@@ -1,5 +1,13 @@
 
 *.zip
 opencv-*
+opencv_contrib-*
 print_cv_info
 libjpeg*
+*.out
+cuda*
+cudnn*
+*.yml
+*.deb
+tensorflow
+*.py

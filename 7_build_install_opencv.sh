@@ -14,7 +14,7 @@ sudo apt-get install libxvidcore-dev libx264-dev
 sudo apt-get install libgtk-3-dev
 sudo apt-get install libatlas-base-dev gfortran
 #cleanup if possible
-opencv_version="4.1.1"
+opencv_version="4.1.2"
 opencv_name="opencv-$opencv_version"
 opencv_source_path="./$opencv_name"
 opencv_build_path="./$opencv_name/build"
@@ -35,6 +35,13 @@ if [ ! -f $opencv_zip ]; then
 	wget -O $opencv_zip https://github.com/Itseez/opencv/archive/$opencv_version.zip
 fi
 unzip $opencv_zip
+#download opencv_contrib
+opencv_contrib_name="opencv_contrib-$opencv_version"
+opencv_contrib_zip="$opencv_contrib_name.zip"
+if [ ! -f $opencv_contrib_zip ]; then
+	wget -O $opencv_contrib_zip https://github.com/Itseez/opencv_contrib/archive/$opencv_version.zip
+fi
+unzip $opencv_contrib_zip
 #build opencv 
 mkdir -p $opencv_build_path
 cd $opencv_build_path
@@ -46,6 +53,8 @@ cmake .. -D CMAKE_BUILD_TYPE=RELEASE -D BUILD_SHARED_LIBS=ON -D CMAKE_INSTALL_PR
 	-D WITH_JASPER=ON -D BUILD_JASPER=ON -D WITH_ZLIB=ON -D BUILD_ZLIB=ON \
         -D BUILD_EXAMPLES=OFF -D WITH_TBB=ON -D BUILD_TBB=ON -D WITH_V4L=ON -D WITH_QT=OFF \
         -D BUILD_PERF_TESTS=OFF -D BUILD_TESTS=OFF -D WITH_IPP=ON -D BUILD_IPP_IW=ON \
+	-D WITH_CUDA=ON -D ENABLE_FAST_MATH=ON -D CUDA_FAST_MATH=ON -D WITH_CUBLAS=ON \
+	-D OPENCV_EXTRA_MODULES_PATH=../../$opencv_contrib_name/modules/ \
         -D ENABLE_PRECOMPILED_HEADERS=OFF -D WITH_OPENCL=OFF -D ENABLE_CXX11=ON ..
 make -j$(getconf _NPROCESSORS_ONLN)
 
