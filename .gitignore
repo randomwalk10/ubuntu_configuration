@@ -11,3 +11,4 @@ cudnn*
 *.deb
 tensorflow
 *.py
+*.run

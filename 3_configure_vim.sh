@@ -19,7 +19,7 @@ cd ~/.vim
 vim +PluginInstall +qall
 #build youcomepleteme
 cd ~/.vim/bundle/YouCompleteMe
-/usr/bin/python2.7 ./install.py --clang-completer
+/usr/bin/python3 ./install.py --clang-completer
 #need to manually configure youcompleteme for better code completion
 #create a symbol for vimrc file
 cd ~
